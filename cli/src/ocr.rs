@@ -128,7 +128,7 @@ impl OCREngine {
 
 // https://github.com/WFCD/WFinfo/blob/a7d4b8311564807cf384495441a18c56f63f7eb1/WFInfo/Data.cs#L830
 fn find_closest_levenshtein_match(items: &Vec<ShortItem>, target: &str) -> ShortItem {
-    let mut lowest_levenshtein = 9999;
+    let mut lowest_levenshtein = usize::MAX;
     let mut lowest_item = None;
 
     for item in items {

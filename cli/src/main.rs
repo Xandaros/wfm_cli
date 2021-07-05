@@ -89,11 +89,13 @@ async fn main() {
             let mut best_price = 0.0;
 
             for (i, item) in items {
-                let item_stats = get_item_info(&item, &user).await.unwrap();
-                if !item_stats.avg_price.is_nan() {
-                    if item_stats.avg_price > best_price {
-                        best_price = item_stats.avg_price;
-                        best_idx = i;
+                if let Ok(item_stats) = get_item_info(&item, &user).await {
+                    if !item_stats.avg_price.is_nan() {
+                        if item_stats.avg_price > best_price {
+                            best_price = item_stats.avg_price;
+                            best_idx = i;
+                        }
+                        all_item_stats.push(item_stats);
                     }
                     all_item_stats.push(item_stats);
                 }
