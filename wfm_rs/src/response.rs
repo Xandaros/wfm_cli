@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::traits::ItemUrl;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Signin {
@@ -43,7 +43,7 @@ pub struct ResponseWrapper<T> {
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Items {
-    pub items: Vec<ShortItem>
+    pub items: Vec<ShortItem>,
 }
 
 #[derive(Serialize, Deserialize, Clone)]

@@ -60,7 +60,7 @@ pub async fn run() -> Result<Config> {
             fs::create_dir(&data_path_screenshot);
             File::create(&data_path_config);
             
-            let token = login_process().await?;
+            let token = JwtToken::default();
             
             print!("Building config...   ");
             let cfg = Config {
